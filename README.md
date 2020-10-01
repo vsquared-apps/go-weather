@@ -1,5 +1,7 @@
 <div align='center'>
 
+<img src='./assets/go-weather.png' width='150px'/>
+
 <h1>go-weather</h1>
 
 </div>
