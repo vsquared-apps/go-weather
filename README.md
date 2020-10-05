@@ -10,6 +10,7 @@
 
 `go-weather` is a CLI tool written in Go for accessing detailed weather information.
 
+The project layout follows the one defined [here](https://github.com/golang-standards/project-layout).
 
 ## License
 
