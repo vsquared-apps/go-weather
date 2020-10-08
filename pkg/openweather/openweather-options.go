@@ -39,3 +39,15 @@ func WithBaseURL(u string) Opt {
 		return nil
 	}
 }
+
+// UseMetricUnits sets the client to get temperature values in metric units (Celsius).
+func UseMetricUnits(c *Client) error {
+	c.units = "metric"
+	return nil
+}
+
+// UseImperialUnits sets the client to get temperature values in metric units (Fahrenheit).
+func UseImperialUnits(c *Client) error {
+	c.units = "imperial"
+	return nil
+}

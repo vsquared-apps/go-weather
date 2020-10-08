@@ -27,6 +27,8 @@ const (
 )
 
 // Client makes requests to the OpenWeather API.
+// A Client by default will get responses using standard units (Kelvin).
+// For more information on units: https://openweathermap.org/current#data
 type Client struct {
 	// HTTP client used to make requests.
 	client *http.Client
@@ -35,6 +37,7 @@ type Client struct {
 	UserAgent string
 
 	apiKey string
+	units  string
 
 	Current *CurrentService
 }
@@ -102,6 +105,9 @@ func (c *Client) NewRequest(method string, path string, body interface{}) (*http
 
 	q := req.URL.Query()
 	q.Add(paramAPIKey, c.apiKey)
+	if c.units != "" {
+		q.Add("units", c.units)
+	}
 
 	req.URL.RawQuery = q.Encode()
 	req.Header.Add(headerUserAgent, c.UserAgent)
